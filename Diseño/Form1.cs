@@ -16,7 +16,6 @@ namespace CalcWPF
         {
             InitializeComponent();
         }
-
         private void btnOff_Click(object sender, EventArgs e)
         {
 
@@ -85,7 +84,47 @@ namespace CalcWPF
 
         private void btnDel_Click(object sender, EventArgs e)
         {
+            if (btnPantalla.Text.Length == 1)
+                btnPantalla.Text = "";
+            else
+                btnPantalla.Text = btnPantalla.Text.Substring(0, btnPantalla.Text.Length - 1);
+        }
 
+        private void btnRandom_TextChanged(object sender, EventArgs e)
+        {
+            btnPuntaje.Text = "";
+            btnPantalla.Text = "";
+
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            int n = 0;
+            Random random = new Random();
+            n = random.Next(1, 100);
+            btnRandom.Text = n.ToString();
+        }
+
+        private void btnPuntaje_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnIgual_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(btnPantalla.Text, out double btnRandom))
+            {
+                double raizCuadrada = Math.Sqrt(btnRandom);
+                raizCuadrada = Math.Round(raizCuadrada, 2);
+
+                if (raizCuadrada == btnRandom)
+                {
+                    btnPuntaje.Text = "Resultado correcto: ";
+                }
+                else
+                {
+                    btnPuntaje.Text = "Resultado incorrecto: ";
+                }
+            }
         }
     }
 }
