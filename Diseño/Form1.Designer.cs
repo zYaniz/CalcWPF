@@ -42,10 +42,11 @@
             this.btn4 = new System.Windows.Forms.Button();
             this.btn6 = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
-            this.btnPuntaje = new System.Windows.Forms.TextBox();
-            this.btnPunto = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.TextBox();
             this.btnInicio = new System.Windows.Forms.Button();
+            this.btnComa = new System.Windows.Forms.Button();
+            this.btnIncorrecto = new System.Windows.Forms.TextBox();
+            this.btnCorrecto = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnPantalla
@@ -57,13 +58,13 @@
             this.btnPantalla.ReadOnly = true;
             this.btnPantalla.Size = new System.Drawing.Size(142, 35);
             this.btnPantalla.TabIndex = 38;
-            this.btnPantalla.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnPantalla.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnIgual
             // 
             this.btnIgual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(53)))), ((int)(((byte)(73)))));
             this.btnIgual.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIgual.Location = new System.Drawing.Point(9, 97);
+            this.btnIgual.Location = new System.Drawing.Point(9, 99);
             this.btnIgual.Name = "btnIgual";
             this.btnIgual.Size = new System.Drawing.Size(94, 45);
             this.btnIgual.TabIndex = 36;
@@ -215,38 +216,14 @@
             this.btnDel.UseVisualStyleBackColor = false;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // btnPuntaje
-            // 
-            this.btnPuntaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(188)))), ((int)(((byte)(33)))));
-            this.btnPuntaje.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPuntaje.Location = new System.Drawing.Point(157, 57);
-            this.btnPuntaje.Name = "btnPuntaje";
-            this.btnPuntaje.ReadOnly = true;
-            this.btnPuntaje.Size = new System.Drawing.Size(136, 35);
-            this.btnPuntaje.TabIndex = 39;
-            this.btnPuntaje.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnPuntaje.TextChanged += new System.EventHandler(this.btnPuntaje_TextChanged);
-            // 
-            // btnPunto
-            // 
-            this.btnPunto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(138)))), ((int)(((byte)(0)))));
-            this.btnPunto.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPunto.Location = new System.Drawing.Point(9, 251);
-            this.btnPunto.Name = "btnPunto";
-            this.btnPunto.Size = new System.Drawing.Size(69, 44);
-            this.btnPunto.TabIndex = 41;
-            this.btnPunto.Text = ".";
-            this.btnPunto.UseVisualStyleBackColor = false;
-            this.btnPunto.Click += new System.EventHandler(this.btnPunto_Click);
-            // 
             // btnRandom
             // 
             this.btnRandom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(188)))), ((int)(((byte)(33)))));
             this.btnRandom.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRandom.Location = new System.Drawing.Point(44, 16);
+            this.btnRandom.Location = new System.Drawing.Point(9, 12);
             this.btnRandom.Name = "btnRandom";
             this.btnRandom.ReadOnly = true;
-            this.btnRandom.Size = new System.Drawing.Size(210, 35);
+            this.btnRandom.Size = new System.Drawing.Size(142, 35);
             this.btnRandom.TabIndex = 42;
             this.btnRandom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnRandom.TextChanged += new System.EventHandler(this.btnRandom_TextChanged);
@@ -259,19 +236,54 @@
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(84, 45);
             this.btnInicio.TabIndex = 43;
-            this.btnInicio.Text = "Inicio";
+            this.btnInicio.Text = "Generar";
             this.btnInicio.UseVisualStyleBackColor = false;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
+            // btnComa
+            // 
+            this.btnComa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(168)))));
+            this.btnComa.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComa.Location = new System.Drawing.Point(9, 251);
+            this.btnComa.Name = "btnComa";
+            this.btnComa.Size = new System.Drawing.Size(69, 44);
+            this.btnComa.TabIndex = 44;
+            this.btnComa.Text = ",";
+            this.btnComa.UseVisualStyleBackColor = false;
+            this.btnComa.Click += new System.EventHandler(this.btnComa_Click);
+            // 
+            // btnIncorrecto
+            // 
+            this.btnIncorrecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(188)))), ((int)(((byte)(33)))));
+            this.btnIncorrecto.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncorrecto.Location = new System.Drawing.Point(157, 56);
+            this.btnIncorrecto.Name = "btnIncorrecto";
+            this.btnIncorrecto.ReadOnly = true;
+            this.btnIncorrecto.Size = new System.Drawing.Size(136, 33);
+            this.btnIncorrecto.TabIndex = 45;
+            this.btnIncorrecto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnCorrecto
+            // 
+            this.btnCorrecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(188)))), ((int)(((byte)(33)))));
+            this.btnCorrecto.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCorrecto.Location = new System.Drawing.Point(157, 14);
+            this.btnCorrecto.Name = "btnCorrecto";
+            this.btnCorrecto.ReadOnly = true;
+            this.btnCorrecto.Size = new System.Drawing.Size(136, 33);
+            this.btnCorrecto.TabIndex = 46;
+            this.btnCorrecto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 322);
+            this.Controls.Add(this.btnCorrecto);
+            this.Controls.Add(this.btnIncorrecto);
+            this.Controls.Add(this.btnComa);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.btnRandom);
-            this.Controls.Add(this.btnPunto);
-            this.Controls.Add(this.btnPuntaje);
             this.Controls.Add(this.btnPantalla);
             this.Controls.Add(this.btnIgual);
             this.Controls.Add(this.btn1);
@@ -310,10 +322,11 @@
         private System.Windows.Forms.Button btn4;
         private System.Windows.Forms.Button btn6;
         private System.Windows.Forms.Button btnDel;
-        private System.Windows.Forms.TextBox btnPuntaje;
-        private System.Windows.Forms.Button btnPunto;
         private System.Windows.Forms.TextBox btnRandom;
         private System.Windows.Forms.Button btnInicio;
+        private System.Windows.Forms.Button btnComa;
+        private System.Windows.Forms.TextBox btnIncorrecto;
+        private System.Windows.Forms.TextBox btnCorrecto;
     }
 }
 

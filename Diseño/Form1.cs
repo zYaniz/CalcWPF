@@ -12,13 +12,15 @@ namespace CalcWPF
 {
     public partial class Form1 : Form
     {
+        int punCorr = 0;
+        int punIncorr = 0;
         public Form1()
         {
             InitializeComponent();
         }
         private void btnOff_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btn0_Click(object sender, EventArgs e)
@@ -71,11 +73,6 @@ namespace CalcWPF
         {
             btnPantalla.Text = btnPantalla.Text + "9";
         }
-        private void btnPunto_Click(object sender, EventArgs e)
-        {
-            btnPantalla.Text = btnPantalla.Text + ".";
-        }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -92,39 +89,44 @@ namespace CalcWPF
 
         private void btnRandom_TextChanged(object sender, EventArgs e)
         {
-            btnPuntaje.Text = "";
-            btnPantalla.Text = "";
-
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            int n = 0;
+            double n = 0;
             Random random = new Random();
             n = random.Next(1, 100);
             btnRandom.Text = n.ToString();
+
+            btnPantalla.Text = "";
         }
 
-        private void btnPuntaje_TextChanged(object sender, EventArgs e)
-        {
-        }
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(btnPantalla.Text, out double btnRandom))
+            if (double.TryParse(btnRandom.Text, out double numeroRandom) &&
+                   double.TryParse(btnPantalla.Text, out double numeroIngresado))
             {
-                double raizCuadrada = Math.Sqrt(btnRandom);
-                raizCuadrada = Math.Round(raizCuadrada, 2);
+                double raizCuadrada = Math.Sqrt(numeroRandom);
 
-                if (raizCuadrada == btnRandom)
+                double tolerancia = 0.01;
+
+                if (Math.Abs(raizCuadrada - numeroIngresado) < tolerancia)
                 {
-                    btnPuntaje.Text = "Resultado correcto: ";
+                    punCorr++; 
                 }
                 else
                 {
-                    btnPuntaje.Text = "Resultado incorrecto: ";
+                    punIncorr++; 
                 }
             }
+            btnCorrecto.Text = "Correcto: " + punCorr;
+            btnIncorrecto.Text = "Incorrecto: " + punIncorr;
+        }
+
+        private void btnComa_Click(object sender, EventArgs e)
+        {
+            btnPantalla.Text = btnPantalla.Text + ",";
         }
     }
 }
