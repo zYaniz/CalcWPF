@@ -105,7 +105,7 @@ namespace CalcWPF
         private void btnIgual_Click(object sender, EventArgs e)
         {
             if (double.TryParse(btnRandom.Text, out double numeroRandom) &&
-                   double.TryParse(btnPantalla.Text, out double numeroIngresado))
+                double.TryParse(btnPantalla.Text, out double numeroIngresado))
             {
                 double raizCuadrada = Math.Sqrt(numeroRandom);
 
@@ -113,20 +113,30 @@ namespace CalcWPF
 
                 if (Math.Abs(raizCuadrada - numeroIngresado) < tolerancia)
                 {
-                    punCorr++; 
+                    if (Math.Round(raizCuadrada) == raizCuadrada)
+                    {
+                        punCorr += 2;
+                    }
+                    else
+                    {
+                        punCorr++;
+                    }
                 }
                 else
                 {
                     punIncorr++; 
                 }
-            }
-            btnCorrecto.Text = "Correcto: " + punCorr;
-            btnIncorrecto.Text = "Incorrecto: " + punIncorr;
-        }
 
+                btnCorrecto.Text = "Correcto: " + punCorr;
+                btnIncorrecto.Text = "Incorrecto: " + punIncorr;
+            }
+        }
         private void btnComa_Click(object sender, EventArgs e)
         {
             btnPantalla.Text = btnPantalla.Text + ",";
         }
     }
 }
+
+
+
